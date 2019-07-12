@@ -14,13 +14,9 @@
 
     <groupId>com.dai.xmp</groupId>
     <artifactId>xmp-gitflow-ci-demo</artifactId>
-    <version>0.1.15-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
    
-    <groupId>org.sonarqube</groupId>
-  <artifactId>parent</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
     
 <modules>
     <module>app-java</module>
@@ -36,10 +32,6 @@
   </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
