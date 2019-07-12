@@ -20,12 +20,6 @@
     <packaging>jar</packaging>
    
     
-<modules>
-    <module>app-java</module>
-    <module>app-groovy</module>
-    <module>app-it</module>
-  </modules>
-    
    <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
