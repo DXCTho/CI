@@ -13,7 +13,7 @@ public class DemoApplication {
        String buggy=null;
         buggy.trim();
         
-        System.out.println("Foo!");
+        System.out.println("Foo!!!");
         
 }
 }
