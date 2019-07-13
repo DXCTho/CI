@@ -23,7 +23,7 @@ pipeline {
             steps {          
 			   dir('ci-sandbox') {
                     git(
-			    branch: '"${BRANCH_NAME}"',
+			    branch: '${BRANCH_NAME}',
                         url: 'https://github.com/DXCTho/CI.git',
                         credentialsId: 'NonDXCGitHubPW'
                     )
