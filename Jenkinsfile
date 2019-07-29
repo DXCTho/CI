@@ -11,6 +11,7 @@ pipeline {
         steps {
                sh "printenv | sort"
             	}
+				}
     stage('Build') {
       steps {
         configFileProvider([configFile(fileId: '83e8ff71-6618-47d6-a6ca-78038527066f', variable: 'MAVEN_SETTINGS')]) {
@@ -30,4 +31,6 @@ pipeline {
 		//       curl -X PUT "https://artifacts.daimler.com/artifactory/mfepace-main-maven-snapshots/xmp-common-0.1.0-SNAPSHOT.jar" || curl --proxy "http://security-proxy.emea.svc.corpintra.net:3128" -T target/xmp-common-0.1.0-SNAPSHOT.jar
                     '''  
   }
+}
+}
 }
