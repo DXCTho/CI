@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         configFileProvider([configFile(fileId: '83e8ff71-6618-47d6-a6ca-78038527066f', variable: 'MAVEN_SETTINGS')]) {
-          sh 'mvn -s ${MAVEN_SETTINGS} clean install test'                                                                                           
+          sh 'mvn -s ${MAVEN_SETTINGS} clean install package'                                                                                           
         }
       }
     }
@@ -24,13 +24,15 @@ pipeline {
           sh "mvn sonar:sonar -Dsonar.host.url=${env.MYSONARHOST}"                                                                                         
       }
     }
-	stage('JFrog Artifactory') {
-      steps {
-          sh '''
-             //          cd ${XMP_IMAGE}/
-		//       curl -X PUT "https://artifacts.daimler.com/artifactory/mfepace-main-maven-snapshots/xmp-common-0.1.0-SNAPSHOT.jar" || curl --proxy "http://security-proxy.emea.svc.corpintra.net:3128" -T target/xmp-common-0.1.0-SNAPSHOT.jar
-                    '''  
-  }
+   stage('Artifactory Repo') {
+           steps {
+		   withCredentials([string(credentialsId: 'AF_STR', variable: 'TOKEN')]) {
+                sh '''
+  			curl -u "Authorization: token ${TOKEN}" -X PUT "http://localhost:8081/artifactory/libs-release/javax" -T target/xmp-gitflow-ci-demo-0.1.0-SNAPSHOT.jar
+                '''
+            }
+					
+                }
 }
 }
 }
