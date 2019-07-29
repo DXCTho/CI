@@ -26,7 +26,7 @@ pipeline {
     }
    stage('Artifactory Repo') {
            steps {
-		   withCredentials([string(credentialsId: 'AF_STR', variable: 'TOKEN')]) {
+		   withCredentials([string(credentialsId: 'JFrog_API_Key', variable: 'TOKEN')]) {
                 sh '''
   			curl -u "Authorization: token ${TOKEN}" -X PUT "http://localhost:8081/artifactory/libs-release/xmp-gitflow-ci-demo-0.1.0-SNAPSHOT.jar" -T target/xmp-gitflow-ci-demo-0.1.0-SNAPSHOT.jar
                 '''
