@@ -12,17 +12,6 @@ pipeline {
                sh "printenv | sort"
             	}
 				}
-    stage('Install') {
-	    steps {
-		    sh 'mvn install:install-file \
-		-Dfile=http://172.17.0.3:8081/artifactory/libs-release-local/xmp-common-0.1.0-SNAPSHOT.jar \
-		-DgroupId=com.dai.xmp \
-   		-DartifactId=xmp-common \
-   		-Dversion=0.1.0-SNAPSHOT\
-  		-Dpackaging=jar \
-   		-DgeneratePom=true'
-	    }
-    }
 	
 	stage('Build') {
       steps {
@@ -40,7 +29,7 @@ pipeline {
            steps {
 		   withCredentials([string(credentialsId: 'JFrog_API_Key', variable: 'TOKEN')]) {
                 sh '''
-  			curl -H 'X-JFrog-Art-Api:'${TOKEN}'' -X PUT "http://172.17.0.3:8081/artifactory/libs-release-local/${XMP_IMAGE}-${XMP_POM_VERSION}.jar" -T target/${XMP_IMAGE}-${XMP_POM_VERSION}.jar
+  			curl -H 'X-JFrog-Art-Api:'${TOKEN}'' -X PUT "http://172.17.0.3:8081/artifactory/libs-release/${XMP_IMAGE}-${XMP_POM_VERSION}.jar" -T target/${XMP_IMAGE}-${XMP_POM_VERSION}.jar
                 '''
             }
 					
