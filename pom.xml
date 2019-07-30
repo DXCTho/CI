@@ -22,7 +22,7 @@
             <id>Artifactory-Releases</id>
             <url>http://172.17.0.3:8081/artifactory/libs-release-local</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
             <releases>
                 <enabled>true</enabled>
