@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.daimler.xmp</groupId>
+        <groupId>com.dai.xmp</groupId>
         <artifactId>xmp-common</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
