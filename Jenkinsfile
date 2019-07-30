@@ -15,8 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         configFileProvider([configFile(fileId: '83e8ff71-6618-47d6-a6ca-78038527066f', variable: 'MAVEN_SETTINGS')]) {
-          sh 'mvn -s ${MAVEN_SETTINGS} \	
-		mvn install:install-file \
+          sh 'mvn -s ${MAVEN_SETTINGS} mvn install:install-file \
 		-Dfile=http://172.17.0.3:8081/artifactory/libs-release-local/xmp-common-0.1.0-SNAPSHOT.jar \
 		-Dpackaging=jar \
 		clean install package'
