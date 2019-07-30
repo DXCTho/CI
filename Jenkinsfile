@@ -20,7 +20,7 @@ pipeline {
    		-DartifactId=xmp-common \
    		-Dversion=0.1.0-SNAPSHOT\
   		-Dpackaging=jar \
-   		-DgeneratePom=true
+   		-DgeneratePom=true'
 	    }
     }
 	
